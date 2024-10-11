@@ -1,0 +1,296 @@
+App\Models\Question Object
+(
+    [connection:protected] => mysql
+    [table:protected] => questions
+    [primaryKey:protected] => id
+    [keyType:protected] => int
+    [incrementing] => 1
+    [with:protected] => Array
+        (
+        )
+
+    [withCount:protected] => Array
+        (
+        )
+
+    [preventsLazyLoading] => 
+    [perPage:protected] => 15
+    [exists] => 1
+    [wasRecentlyCreated] => 
+    [escapeWhenCastingToString:protected] => 
+    [attributes:protected] => Array
+        (
+            [id] => 13
+            [type] => MCQ
+            [text] => What is 4x4?
+            [media_id] => 
+            [grade_id] => 3
+            [subject_id] => 4
+            [options] => 
+            [correct_answer] => 16
+            [created_at] => 2024-10-11 07:07:11
+            [updated_at] => 2024-10-11 07:07:11
+        )
+
+    [original:protected] => Array
+        (
+            [id] => 13
+            [type] => MCQ
+            [text] => What is 4x4?
+            [media_id] => 
+            [grade_id] => 3
+            [subject_id] => 4
+            [options] => 
+            [correct_answer] => 16
+            [created_at] => 2024-10-11 07:07:11
+            [updated_at] => 2024-10-11 07:07:11
+        )
+
+    [changes:protected] => Array
+        (
+        )
+
+    [casts:protected] => Array
+        (
+            [options] => array
+        )
+
+    [classCastCache:protected] => Array
+        (
+        )
+
+    [attributeCastCache:protected] => Array
+        (
+        )
+
+    [dateFormat:protected] => 
+    [appends:protected] => Array
+        (
+        )
+
+    [dispatchesEvents:protected] => Array
+        (
+        )
+
+    [observables:protected] => Array
+        (
+        )
+
+    [relations:protected] => Array
+        (
+            [media] => 
+            [grade] => App\Models\Grade Object
+                (
+                    [connection:protected] => mysql
+                    [table:protected] => grades
+                    [primaryKey:protected] => id
+                    [keyType:protected] => int
+                    [incrementing] => 1
+                    [with:protected] => Array
+                        (
+                        )
+
+                    [withCount:protected] => Array
+                        (
+                        )
+
+                    [preventsLazyLoading] => 
+                    [perPage:protected] => 15
+                    [exists] => 1
+                    [wasRecentlyCreated] => 
+                    [escapeWhenCastingToString:protected] => 
+                    [attributes:protected] => Array
+                        (
+                            [id] => 3
+                            [name] => Grade 3
+                        )
+
+                    [original:protected] => Array
+                        (
+                            [id] => 3
+                            [name] => Grade 3
+                        )
+
+                    [changes:protected] => Array
+                        (
+                        )
+
+                    [casts:protected] => Array
+                        (
+                        )
+
+                    [classCastCache:protected] => Array
+                        (
+                        )
+
+                    [attributeCastCache:protected] => Array
+                        (
+                        )
+
+                    [dateFormat:protected] => 
+                    [appends:protected] => Array
+                        (
+                        )
+
+                    [dispatchesEvents:protected] => Array
+                        (
+                        )
+
+                    [observables:protected] => Array
+                        (
+                        )
+
+                    [relations:protected] => Array
+                        (
+                        )
+
+                    [touches:protected] => Array
+                        (
+                        )
+
+                    [timestamps] => 1
+                    [usesUniqueIds] => 
+                    [hidden:protected] => Array
+                        (
+                        )
+
+                    [visible:protected] => Array
+                        (
+                        )
+
+                    [fillable:protected] => Array
+                        (
+                            [0] => name
+                        )
+
+                    [guarded:protected] => Array
+                        (
+                            [0] => *
+                        )
+
+                )
+
+            [subject] => App\Models\Subject Object
+                (
+                    [connection:protected] => mysql
+                    [table:protected] => subjects
+                    [primaryKey:protected] => id
+                    [keyType:protected] => int
+                    [incrementing] => 1
+                    [with:protected] => Array
+                        (
+                        )
+
+                    [withCount:protected] => Array
+                        (
+                        )
+
+                    [preventsLazyLoading] => 
+                    [perPage:protected] => 15
+                    [exists] => 1
+                    [wasRecentlyCreated] => 
+                    [escapeWhenCastingToString:protected] => 
+                    [attributes:protected] => Array
+                        (
+                            [id] => 4
+                            [name] => Subject 4
+                        )
+
+                    [original:protected] => Array
+                        (
+                            [id] => 4
+                            [name] => Subject 4
+                        )
+
+                    [changes:protected] => Array
+                        (
+                        )
+
+                    [casts:protected] => Array
+                        (
+                        )
+
+                    [classCastCache:protected] => Array
+                        (
+                        )
+
+                    [attributeCastCache:protected] => Array
+                        (
+                        )
+
+                    [dateFormat:protected] => 
+                    [appends:protected] => Array
+                        (
+                        )
+
+                    [dispatchesEvents:protected] => Array
+                        (
+                        )
+
+                    [observables:protected] => Array
+                        (
+                        )
+
+                    [relations:protected] => Array
+                        (
+                        )
+
+                    [touches:protected] => Array
+                        (
+                        )
+
+                    [timestamps] => 1
+                    [usesUniqueIds] => 
+                    [hidden:protected] => Array
+                        (
+                        )
+
+                    [visible:protected] => Array
+                        (
+                        )
+
+                    [fillable:protected] => Array
+                        (
+                            [0] => name
+                        )
+
+                    [guarded:protected] => Array
+                        (
+                            [0] => *
+                        )
+
+                )
+
+        )
+
+    [touches:protected] => Array
+        (
+        )
+
+    [timestamps] => 1
+    [usesUniqueIds] => 
+    [hidden:protected] => Array
+        (
+        )
+
+    [visible:protected] => Array
+        (
+        )
+
+    [fillable:protected] => Array
+        (
+            [0] => type
+            [1] => text
+            [2] => media_id
+            [3] => grade_id
+            [4] => subject_id
+            [5] => options
+            [6] => correct_answer
+        )
+
+    [guarded:protected] => Array
+        (
+            [0] => *
+        )
+
+)
