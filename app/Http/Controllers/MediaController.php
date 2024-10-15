@@ -22,13 +22,21 @@ class MediaController extends Controller
 
     public function store(Request $request)
     {
+        file_put_contents("outputreq.txt",print_r($request->all(),1));
         $validated = $request->validate([
-            'file_url' => 'required|url',
+            // 'file_url' => 'required|url',
             'type' => 'required|in:image,video,document',
             'description' => 'nullable|string',
+            'learning_objectives' => 'required|array',
+            'learning_objectives.*' => 'exists:learning_objectives,id',
         ]);
+        $uploadController = new UploadController();
+        $fileUrl = $uploadController->uploadToPath($request, 'media');
+        $validated['file_url'] = $fileUrl;
 
         $media = Media::create($validated);
+        $media->learningObjectives()->attach($request->learning_objectives);
+
         return redirect()->route('media.show', $media->id);
     }
 

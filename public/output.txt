@@ -20,30 +20,30 @@ App\Models\Question Object
     [escapeWhenCastingToString:protected] => 
     [attributes:protected] => Array
         (
-            [id] => 13
+            [id] => 19
             [type] => MCQ
-            [text] => What is 4x4?
-            [media_id] => 
-            [grade_id] => 3
-            [subject_id] => 4
-            [options] => 
-            [correct_answer] => 16
-            [created_at] => 2024-10-11 07:07:11
-            [updated_at] => 2024-10-11 07:07:11
+            [text] => What is 5x5?
+            [media_url] => https://questions-media-app.s3.amazonaws.com/questions/19/scoring_request_mohit.txt
+            [grade_id] => 1
+            [subject_id] => 1
+            [options] => "[\"5\",\"25\"]"
+            [correct_answer] => 25
+            [created_at] => 2024-10-12 07:05:07
+            [updated_at] => 2024-10-12 07:05:07
         )
 
     [original:protected] => Array
         (
-            [id] => 13
+            [id] => 19
             [type] => MCQ
-            [text] => What is 4x4?
-            [media_id] => 
-            [grade_id] => 3
-            [subject_id] => 4
-            [options] => 
-            [correct_answer] => 16
-            [created_at] => 2024-10-11 07:07:11
-            [updated_at] => 2024-10-11 07:07:11
+            [text] => What is 5x5?
+            [media_url] => https://questions-media-app.s3.amazonaws.com/questions/19/scoring_request_mohit.txt
+            [grade_id] => 1
+            [subject_id] => 1
+            [options] => "[\"5\",\"25\"]"
+            [correct_answer] => 25
+            [created_at] => 2024-10-12 07:05:07
+            [updated_at] => 2024-10-12 07:05:07
         )
 
     [changes:protected] => Array
@@ -78,7 +78,6 @@ App\Models\Question Object
 
     [relations:protected] => Array
         (
-            [media] => 
             [grade] => App\Models\Grade Object
                 (
                     [connection:protected] => mysql
@@ -101,14 +100,14 @@ App\Models\Question Object
                     [escapeWhenCastingToString:protected] => 
                     [attributes:protected] => Array
                         (
-                            [id] => 3
-                            [name] => Grade 3
+                            [id] => 1
+                            [name] => Grade 1
                         )
 
                     [original:protected] => Array
                         (
-                            [id] => 3
-                            [name] => Grade 3
+                            [id] => 1
+                            [name] => Grade 1
                         )
 
                     [changes:protected] => Array
@@ -192,14 +191,14 @@ App\Models\Question Object
                     [escapeWhenCastingToString:protected] => 
                     [attributes:protected] => Array
                         (
-                            [id] => 4
-                            [name] => Subject 4
+                            [id] => 1
+                            [name] => Subject 1
                         )
 
                     [original:protected] => Array
                         (
-                            [id] => 4
-                            [name] => Subject 4
+                            [id] => 1
+                            [name] => Subject 1
                         )
 
                     [changes:protected] => Array
@@ -281,7 +280,7 @@ App\Models\Question Object
         (
             [0] => type
             [1] => text
-            [2] => media_id
+            [2] => media_url
             [3] => grade_id
             [4] => subject_id
             [5] => options

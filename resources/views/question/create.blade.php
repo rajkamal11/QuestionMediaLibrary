@@ -2,7 +2,7 @@
 
 @section('content')
     <h2>Create Question</h2>
-    <form action="{{ route('question.store') }}" method="POST" class="mt-4" id="question-form">
+    <form action="{{ route('question.store') }}" method="POST" class="mt-4" id="question-form" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="text">Question Text</label>
@@ -123,13 +123,8 @@
             });
         </script>
         <div class="form-group">
-            <label for="media_id">Question Media</label>
-            <select name="media_id" id="media_id" class="form-control">
-                <option value="">Select Media (optional)</option>
-                @foreach($media as $item)
-                    <option value="{{ $item->id }}">{{ $item->description }}</option>
-                @endforeach
-            </select>
+            <label for="file">Question Media</label>
+            <input type="file" name="file" id="file" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="grade_id">Grade</label>

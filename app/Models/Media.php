@@ -14,8 +14,13 @@ class Media extends Model
         'description',
     ];
 
-    public function questions()
+    // public function questions()
+    // {
+    //     return $this->hasMany(Question::class);
+    // }
+
+    public function learningObjectives()
     {
-        return $this->hasMany(Question::class);
+        return $this->belongsToMany(LearningObjective::class, 'learning_objective_media');
     }
 }

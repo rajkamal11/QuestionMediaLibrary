@@ -1,13 +1,30 @@
 Array
 (
-    [_token] => Jz9lCBeoryUlBASkW0UKMF9u1QOW3H4OPzhvm1Ox
-    [text] => What is 4x4?
+    [_token] => 0DkWs9SWfTQ0ZI3q2iPWDMDDn4qpZh7QTQMwBCF1
+    [text] => What is 5x5?
     [type] => mcq
-    [options] => ["4","8","16","32"]
-    [mcq_answer] => 16
+    [options] => Array
+        (
+            [0] => 5
+            [1] => 25
+        )
+
+    [mcq_answer] => 25
     [text_answer] => 
-    [correct_answer] => 16
-    [media_id] => 
-    [grade_id] => 3
-    [subject_id] => 3
+    [correct_answer] => 25
+    [grade_id] => 1
+    [subject_id] => 1
+    [file] => Illuminate\Http\UploadedFile Object
+        (
+            [test:Symfony\Component\HttpFoundation\File\UploadedFile:private] => 
+            [originalName:Symfony\Component\HttpFoundation\File\UploadedFile:private] => scoring_request_mohit.txt
+            [mimeType:Symfony\Component\HttpFoundation\File\UploadedFile:private] => text/plain
+            [error:Symfony\Component\HttpFoundation\File\UploadedFile:private] => 0
+            [originalPath:Symfony\Component\HttpFoundation\File\UploadedFile:private] => scoring_request_mohit.txt
+            [hashName:protected] => 
+            [pathName:SplFileInfo:private] => C:\xampp\tmp\php387.tmp
+            [fileName:SplFileInfo:private] => php387.tmp
+        )
+
+    [media_url] => https://questions-media-app.s3.amazonaws.com/questions/19/scoring_request_mohit.txt
 )

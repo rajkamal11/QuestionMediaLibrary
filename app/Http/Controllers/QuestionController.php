@@ -2,45 +2,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Factories\QuestionFactory;
 use App\Models\Question;
-use App\Models\Media; // Import if you need to link media
-use App\Models\Grade; // Assuming you have a Grade model
-use App\Models\Subject; // Assuming you have a Subject model
-use App\Models\LearningObjective; // Assuming you have a Learning Objective model
-use App\Models\MCQQuestion; // Assuming you have a MCQQuestion model
-use App\Models\FillInTheBlankQuestion; // Assuming you have a FillInTheBlankQuestion model
+use App\Models\Media;
+use App\Models\Grade;
+use App\Models\Subject;
+use App\Models\LearningObjective;
 
 class QuestionController extends Controller
 {
     public function index()
     {
-        $questions = Question::all(); // Fetch all questions
+        $questions = Question::all();
         return view('question.index', compact('questions'));
     }
 
     public function create()
     {
-        $grades = Grade::all(); // Fetch all grades
-        $subjects = Subject::all(); // Fetch all subjects
-        $media = Media::all(); // Fetch all media
-        $learningObjectives = LearningObjective::all(); // Fetch all LOs
+        $grades = Grade::all();
+        $subjects = Subject::all();
+        $media = Media::all();
+        $learningObjectives = LearningObjective::all();
         return view('question.create', compact('grades', 'subjects', 'media', 'learningObjectives'));
     }
 
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'text' => 'required|string',
-        //     'type' => 'required|string',
-        //     'media_id' => 'nullable|exists:media,id',
-        //     'grade_id' => 'required|exists:grades,id',
-        //     'subject_id' => 'required|exists:subjects,id',
-        //     'learning_objectives' => 'required|array',
-        //     'learning_objectives.*' => 'exists:learning_objectives,id',  
-        // ]);
-        // // file_put_contents("output.txt",print_r($request->all(),1));
-        // $question = Question::create($request->except('learning_objectives'));
-
         file_put_contents("outputreq.txt",print_r($request->all(),1));
         $request->validate([
             'text' => 'required|string',
@@ -49,25 +36,19 @@ class QuestionController extends Controller
             'grade_id' => 'required|exists:grades,id',
             'subject_id' => 'required|exists:subjects,id',
             'learning_objectives' => 'required|array',
-            // 'learning_objectives.*' => 'exists:learning_objectives,id',
-            // 'options' => 'required_if:type,MCQ|array|max:5',
-            // 'options.*' => 'string|distinct',
-            // 'correct_answer' => 'required|string',
+            
         ]);
-        file_put_contents("output.txt", "57 here====================");
+        file_put_contents("output.txt", "45 here====================");
         $data = $request->except('learning_objectives');
         $question = null;
-        
-        if ($request->type === 'mcq') {
-            $data['options'] = json_encode($request->options);
-            $question = MCQQuestion::create($data);
-        } else {
-            $question = FillInTheBlankQuestion::create($data);
-        }
-        file_put_contents("outputdata.txt", print_r($data,1));
-        $question->learningObjectives()->attach($request->learning_objectives);
 
-        file_put_contents("output.txt", "69 here====================");
+        $nexiId = Question::max('id') + 1;
+        $uploadController = new UploadController();
+        $fileUrl = $uploadController->uploadToPath($request, 'questions/'.$nexiId);
+        $data['media_url'] = $fileUrl;
+        
+        $question = QuestionFactory::create($data);
+        $question->learningObjectives()->attach($request->learning_objectives);
 
         return redirect()->route('question.index')->with('success', 'Question created successfully.');
     }
@@ -91,11 +72,9 @@ class QuestionController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Validate and update the question
         $request->validate([
             'text' => 'required|string',
             'type' => 'required|string',
-            'media_id' => 'nullable|exists:media,id',
             'grade_id' => 'required|exists:grades,id',
             'subject_id' => 'required|exists:subjects,id',
         ]);

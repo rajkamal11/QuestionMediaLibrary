@@ -26,9 +26,12 @@ class UploadController extends Controller
 
     public function uploadToPath(Request $request, $destinationPath)
     {
-        $request->validate([
-            'file' => 'required|file|mimes:jpg,jpeg,png,mp4,mov,avi,txt|max:20480', // 20MB max
-        ]);
+        file_put_contents("outputrequpload.txt",print_r($request->all(),1));
+        // $request->validate([
+        //     'file' => 'required|file|mimes:jpg,jpeg,png,mp4,mov,avi,txt|max:20480', // 20MB max
+        // ]);
+
+        file_put_contents("output.txt", "here upload 34========");
 
         $file = $request->file('file');
         $filePath = $file->storeAs($destinationPath, $file->getClientOriginalName(), 's3');
@@ -38,6 +41,7 @@ class UploadController extends Controller
 
         $fileUrl = Storage::disk('s3')->url($filePath);
 
-        return back()->with('success', 'File uploaded successfully.')->with('fileUrl', $fileUrl);
+        // return back()->with('success', 'File uploaded successfully.')->with('fileUrl', $fileUrl);
+        return $fileUrl;
     }
 }

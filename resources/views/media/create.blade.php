@@ -1,33 +1,34 @@
 @extends('layout')
 
 @section('content')
-    <h2>Upload Media</h2>
+<div class="container">
+    <h1>Create New Media</h1>
     <form action="{{ route('media.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div>
-            <label for="file">File</label>
-            <input type="file" name="file" id="file" required>
+        <div class="form-group">
+            <input type="file" name="file" id="file" class="form-control" required>
         </div>
-        <div>
+        <div class="form-group">
             <label for="type">Type</label>
-            <select name="type" id="type" required>
+            <select name="type" id="type" class="form-control" required>
                 <option value="image">Image</option>
                 <option value="video">Video</option>
                 <option value="document">Document</option>
             </select>
         </div>
-        <div>
+        <div class="form-group">
             <label for="description">Description</label>
-            <textarea name="description" id="description"></textarea>
+            <textarea name="description" id="description" class="form-control"></textarea>
         </div>
-        <div>
-            <label for="lo_id">Learning Objective</label>
-            <select name="lo_id" id="lo_id" required>
-                @foreach($learningObjectives as $lo)
-                    <option value="{{ $lo->id }}">{{ $lo->name }}</option>
+        <div class="form-group">
+            <label for="learning_objectives">Learning Objectives</label>
+            <select name="learning_objectives[]" id="learning_objectives" class="form-control" multiple required>
+                @foreach($learningObjectives as $learningObjective)
+                    <option value="{{ $learningObjective->id }}">{{ $learningObjective->name }}</option>
                 @endforeach
             </select>
         </div>
-        <button type="submit">Upload</button>
+        <button type="submit" class="btn btn-primary">Create</button>
     </form>
+</div>
 @endsection

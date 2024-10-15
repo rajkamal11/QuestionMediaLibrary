@@ -9,7 +9,7 @@ class Question extends Model
     use HasFactory;
 
     protected $fillable = [
-        'type', 'text', 'media_id', 'grade_id', 'subject_id', 'options', 'correct_answer'
+        'type', 'text', 'media_url', 'grade_id', 'subject_id', 'options', 'correct_answer'
     ];
 
     protected $casts = [
@@ -33,10 +33,10 @@ class Question extends Model
         'question_learning_objective', 'question_id', 'learning_objective_id');
     }
 
-    public function media()
-    {
-        return $this->belongsTo(Media::class);
-    }
+    // public function media()
+    // {
+    //     return $this->belongsTo(Media::class);
+    // }
 
     public function grade()
     {

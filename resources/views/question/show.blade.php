@@ -17,7 +17,13 @@
         @endif
     @endif
     <p><strong>Correct Answer:</strong> {{ $question->correct_answer }}</p>
-    <p><strong>Media:</strong> {{ $question->media->description ?? 'None' }}</p>
+    <p><strong>Media:</strong> 
+        @if(empty($question->media_url))
+            None
+        @else
+            <a href="{{ $question->media_url }}" target="_blank">View</a>
+        @endif
+    </p>
     <p><strong>Grade:</strong> {{ $question->grade->name }}</p>
     <p><strong>Subject:</strong> {{ $question->subject->name }}</p>
     <p><strong>Learning Objectives:</strong>

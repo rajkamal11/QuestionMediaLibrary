@@ -19,4 +19,9 @@ class LearningObjective extends Model
     {
         return $this->belongsToMany(Question::class, 'question_learning_objective');
     }
+
+    public function media()
+    {
+        return $this->belongsToMany(Media::class, 'learning_objective_media');
+    }
 }
